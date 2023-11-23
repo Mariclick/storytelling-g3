@@ -1,8 +1,5 @@
 import express from 'express';
-<<<<<<< HEAD
 import cors from 'cors';
-=======
->>>>>>> a73ea703ec6df9a981081005c5ca24a0a1fc59f1
 import swaggerUi from 'swagger-ui-express';
 import indexRoutes from './api/users/routes/index.routes.js';
 import { port } from './config/index.js';
@@ -14,14 +11,11 @@ const app = express();
 //middlewares
 app.use(express.json());
 
-<<<<<<< HEAD
 app.use(cors({
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   }));
   
   app.options('*', cors());
-=======
->>>>>>> a73ea703ec6df9a981081005c5ca24a0a1fc59f1
 
 dbConnection();
 
