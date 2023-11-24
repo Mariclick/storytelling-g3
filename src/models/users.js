@@ -3,13 +3,19 @@ import {Schema, model} from 'mongoose'
 const miModelo = new Schema({
   nombre: {
     type: String,
-    require: true,
-    
+    require: true,  
   },
   enlace: {
     type: String,
     require: true,
-    
+  },
+  empresa: {
+    type: String,
+    require: true,
+  },
+  mision: {
+    type: String,
+    require: true,
   },
   genero: { 
     type: String, 
@@ -42,6 +48,10 @@ const miModelo = new Schema({
   mensaje: {  
     type: String,
     require: true
+  },
+  comportamiento: {
+    type: String,
+    require: true,
   },
   
 });
