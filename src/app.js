@@ -22,6 +22,9 @@ app.use(
 app.use('/docs', swaggerUi.serve);
 app.get('/docs', swaggerUi.setup(openApiSpecification));
 
+
+
+
 app.get('/',(request, response, error)=> {
     response.send('status: ok, Esta todo biennn!!' )
 

@@ -3,10 +3,15 @@ import path from 'path';
 
 const swaggerOptions = {
   definition: {
-    openapi: '3.0.0',
+    openapi: '3.0.1',
     info: {
       title: 'Grupo 3 Jr',
-      version: '1.0.0',
+      version: '1.3.0',
+      description: 'User management API',
+            license: {
+                name: 'Apache 2.0',
+                url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+              }
     },
     servers:[
       {
