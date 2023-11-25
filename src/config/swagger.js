@@ -20,8 +20,6 @@ const swaggerOptions = {
     ]
   },
   apis: [
-    'app.js',
-    './src/api/users/routes/*.js',
     `${path.join('./src/api/users/routes/*.js')}`
    ],
 };

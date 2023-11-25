@@ -1,4 +1,7 @@
-import { Configuration, OpenAIApi } from "openai";
+/*import { Configuration, OpenAIApi } from "openai";
+
+
+
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
 });
@@ -6,19 +9,19 @@ const openai = new OpenAIApi(configuration);
 const response = await openai.listEngines()
 
 const inputVariables = [
-  "name",
-  "link",
-  "company",
-  "mission",
-  "gender",
-  "protagonist",
-  "Ourobjective",
-  "motivation",
-  "bad",
-  "assistant",
-  "attitude",
-  "message",
-  "behavior"
+  "nombre",
+  "enlace",
+  "empresa",
+  "mision",
+  "genero",
+  "protagonista",
+  "objetivo",
+  "motivacion",
+  "malo",
+  "ayudante",
+  "actitud",
+  "mensaje",
+  "comportamiento"
 ];
 const template = `
 
@@ -80,4 +83,6 @@ openai.createCompletion("davinci", {
 })
 .catch(error => {
   console.error('Error:', error);
-});
+});*/
+
+

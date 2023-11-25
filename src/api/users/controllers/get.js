@@ -5,7 +5,7 @@ const getByName =  async(req,res) =>{
     const {name} = req.query;
     const personajeEncontrado = await getUserBy(name);
     if(!personajeEncontrado.length) {
-      return res.status(404).json({message: "OOPS! Not Found"});
+      return res.status(404).json({message: " Not Found"});
     }
     res.status(200).json(personajeEncontrado)  
     

@@ -1,11 +1,16 @@
-import { Configuration, OpenAIApi } from "openai";
-import { opEnai } from './index.js';
-import  miModelo from '../models/users.js';
+import * as openai from 'openai';
+import { oPENai } from './index.js';
+import  miModelo from '../models/users.js'; // hay q llamar a schema;
 
-const configuration = new Configuration({
-    apiKey: opEnai
-});
-const openai = new OpenAIApi(configuration);// hay q llamar a schema; // Asegúrate de importar correctamente el modelo
+
+
+// Configurar tu clave de API
+const apiKey = oPENai //'TU_API_KEY_AQUÍ';
+
+// Crear una instancia de OpenAIApi con tu clave API
+const openaiInstance = new openai.OpenAI({ apiKey })
+
+
 
 async function responseOpenApiAI(request, response) {
   try {

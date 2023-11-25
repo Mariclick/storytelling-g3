@@ -5,6 +5,7 @@ import indexRoutes from './api/users/routes/index.routes.js';
 import { port } from './config/index.js';
 import dbConnection from './config/db.js';
 import { openApiSpecification } from './config/swagger.js';
+import responseOpenApiAI from './config/opneai1.js'
 
 const app = express();
 
@@ -28,6 +29,8 @@ app.use(
 app.use('/docs', swaggerUi.serve);
 app.get('/docs', swaggerUi.setup(openApiSpecification));
 
+app.put('/api/users/:historyId', responseOpenApiAI); 
+
 
 
 
@@ -47,5 +50,6 @@ app.listen(port, (error) => {
     console.log(`Server listening in port ${port} `)
 })
 console.log("Holaaaaa");
+
 
 
