@@ -10,6 +10,14 @@ const createUserSchema = Joi.object({
   enlace: Joi.string()
     .email()
     .required(),
+  empresa: Joi.string()
+    .required()
+    .min(3)
+    .max(30),
+  mision: Joi.string()
+    .required()
+    .min(3)
+    .max(30),
   genero: Joi.string()
     .required()
     .min(3)
@@ -19,27 +27,36 @@ const createUserSchema = Joi.object({
     .min(3)
     .max(30),
   objetivo: Joi.string()
-    .required()
-    .min(3)
-    .max(30),
+    .required(),
   motivacion: Joi.string()
     .required()
     .min(3)
     .max(30),
   malo: Joi.string()
-    .required(),
+    .required()
+    .min(3)
+    .max(30),
   ayudante: Joi.string()
     .required()
     .min(3)
-    .max(30),
+    .max(100),
   actitud: Joi.string()
     .required()
     .min(3)
-    .max(30),
+    .max(100),
   mensaje: Joi.string()
     .required()
     .min(3)
     .max(100),
+  comportamiento: Joi.string()
+    .required()
+    .min(3)
+    .max(100),
+  responseAI: Joi.string()
+    .min(3)
+    .max(100),
+
+
 
 });
 
@@ -52,6 +69,14 @@ const patchUserSchema = Joi.object({
   enlace: Joi.string()
     .email()
     .required(),
+  empresa: Joi.string()
+    .required()
+    .min(3)
+    .max(30),
+  mision: Joi.string()
+    .required()
+    .min(3)
+    .max(30),
   genero: Joi.string()
     .required()
     .min(3)
@@ -61,27 +86,37 @@ const patchUserSchema = Joi.object({
     .min(3)
     .max(30),
   objetivo: Joi.string()
-    .required()
-    .min(3)
-    .max(30),
+    .required(),
   motivacion: Joi.string()
     .required()
     .min(3)
     .max(30),
   malo: Joi.string()
-    .required(),
+    .required()
+    .min(3)
+    .max(30),
   ayudante: Joi.string()
     .required()
     .min(3)
-    .max(30),
+    .max(100),
   actitud: Joi.string()
     .required()
     .min(3)
-    .max(30),
+    .max(100),
   mensaje: Joi.string()
     .required()
     .min(3)
     .max(100),
+  comportamiento: Joi.string()
+    .required()
+    .min(3)
+    .max(100),
+  responseAI: Joi.string()
+    .min(3)
+    .max(100),
+
+
+
 });
 
 

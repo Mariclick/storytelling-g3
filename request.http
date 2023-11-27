@@ -1,22 +1,47 @@
 ###
-Send Request
-POST http://localhost:3000/users HTTP/1.1
-Content-Type: application/json
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type:application/json 
 
 {
-  "nombre": "Mb",
-	"enlace": "mari@ejemplo.com",
-	"genero": "fem",
-	"protagonista": "heroe",
-	"objetivo": "emigrar",
-	"malo": "el gobierno",
-	"ayudante": "estudio",
-	"actitud": "student"
-
+    "nombre": "Simon",
+    "enlace": "saimon@gr",
+    "empresa": "HUAWEI",
+    "mision": "ROMPER LAS PELOTAS",
+    "genero": "MASCULINO",
+    "protagonista": "PERRUNO",
+    "objetivo": "AMIGO FIEL",
+    "motivacion": "LA COMIDA",
+    "malo": "JACK",
+    "ayudante": "PIA",
+    "actitud": "AMOROSA",
+    "mensaje": "LOS AMIGOS SIEMPRE UNIDS",
+    "comportamiento": "DEFENSIVO",
+    "responseAI": ""
 }
-
 ### 
 GET http://localhost:3000/users HTTP/1.1
+
+###
+PUT http://localhost:3000/api/users/ HTTP/1.1
+Content-Type:application/json 
+
+{
+    "nombre": "Jack",
+    "enlace": "saimon@gr",
+    "empresa": "HUAWEI",
+    "mision": "ROMPER LAS guindas",
+    "genero": "dudoso",
+    "protagonista": "PERRUNO",
+    "objetivo": "AMIGO FIEL",
+    "motivacion": "LA COMIDA",
+    "malo": "JACK",
+    "ayudante": "PIA",
+    "actitud": "AMOROSA",
+    "mensaje": "LOS AMIGOS SIEMPRE UNIDS",
+    "comportamiento": "DEFENSIVO",
+    "responseAI": ""
+} 
+
 
 ###
 DELETE http://localhost:3000/user/6454907a716ec753c0892418/delete HTTP/1.1

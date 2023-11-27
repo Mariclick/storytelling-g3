@@ -2,7 +2,8 @@ import * as openai from 'openai';
 import { oPENai } from './index.js';
 import  miModelo from '../models/users.js'; // hay q llamar a schema;
 
-
+// api jordannnnn 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
+// api mothersip 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
 
 // Configurar tu clave de API
 const apiKey = oPENai //'TU_API_KEY_AQUÍ';

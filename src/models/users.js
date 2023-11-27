@@ -53,6 +53,11 @@ const miModelo = new Schema({
     type: String,
     require: true,
   },
+  responseAI: {
+    type: String,
+    required: false
+}
+
   
 });
 

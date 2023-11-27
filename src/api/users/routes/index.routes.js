@@ -26,13 +26,19 @@ const router = Router();
  *        required:
  *          - nombre
  *          - enlace
+ *          - empresa
+ *          - mision
  *          - genero
- *          - protagonista
- *          - objetivo
+ *          - protagonista: 
+            - objetivo
  *          - motivacion
- *          - malo
+            - malo
  *          - ayudante
  *          - actitud
+ *          - mensaje
+ *          - comportamiento
+ *          - responseAi
+ *          
  * 
  *        properties:
  *          nombre:
@@ -55,11 +61,7 @@ const router = Router();
  *          actitud:
  *            type: string
  * 
- *        example:
- *          nombre: mama
- *          enlace: mariana@email.com
- *          genero: fem  
- *          protagonista: heroina
+ *  
  */
 
 // Users
