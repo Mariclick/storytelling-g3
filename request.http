@@ -1,8 +1,11 @@
-###
+### 
 POST http://localhost:3000/api/users HTTP/1.1
 Content-Type:application/json 
 
 {
+
+
+    
     "nombre": "Simon",
     "enlace": "saimon@gr",
     "empresa": "HUAWEI",
@@ -18,11 +21,16 @@ Content-Type:application/json
     "comportamiento": "DEFENSIVO",
     "responseAI": ""
 }
-### 
-GET http://localhost:3000/users HTTP/1.1
+
 
 ###
-PUT http://localhost:3000/api/users/ HTTP/1.1
+GET http://localhost:3000/api/users HTTP/1.1
+
+###
+GET http://localhost:3000/api/user/654c338cdd89c487fc4e8611 HTTP/1.1
+
+###
+PUT http://localhost:3000/api/users/6563ec761cb2e991e789a4d8 HTTP/1.1
 Content-Type:application/json 
 
 {
@@ -40,8 +48,8 @@ Content-Type:application/json
     "mensaje": "LOS AMIGOS SIEMPRE UNIDS",
     "comportamiento": "DEFENSIVO",
     "responseAI": ""
-} 
-
+}
+ 
 
 ###
-DELETE http://localhost:3000/user/6454907a716ec753c0892418/delete HTTP/1.1
+DELETE http://localhost:3000/api/users/6654c1d6e1c48a3994bdf83c6 HTTP/1.1

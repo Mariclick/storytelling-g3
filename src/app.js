@@ -1,35 +1,51 @@
 import express from 'express';
-import cors from 'cors';
-import swaggerUi from 'swagger-ui-express';
-import indexRoutes from './api/users/routes/index.routes.js';
 import { port } from './config/index.js';
 import dbConnection from './config/db.js';
-import { openApiSpecification } from './config/swagger.js';
-import responseOpenApiAI from './config/opneai1.js'
+import userRoutes from  './routes/user.js';
+import swaggerUI from 'swagger-ui-express';
+import swaggerJSDoc from 'swagger-jsdoc';
+import path from 'path';
+import responseOpenApiAI from './config/openai2.js'
 
-const app = express();
+const swaggerSpect ={
+    definition: {
+        openapi: '3.1.0',
+        info: {
+          title: 'grupo 3 js',
+          version: '1.0.1',
+        },
+        servers:[
+          {
+          url:'http://localhost:3000'
+          }
+        ],
+      },
+      apis: [
+        `${path.join('./routes/*.js')}`
 
-//middlewares
-app.use(express.json());
+       ], 
+    
+}
+export { swaggerJSDoc as default }
 
-app.use(cors({
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  }));
-  
-  app.options('*', cors());
+const app= express(); 
+dbConnection()
 
-dbConnection();
 
-// Routes
-app.use(
-    indexRoutes, 
-    );
 
-// Swagger
-app.use('/docs', swaggerUi.serve);
-app.get('/docs', swaggerUi.setup(openApiSpecification));
+//swagger
+/*app.use(
+  '/api-doc',swaggerUI.serve,swaggerUI.setup(swaggerJsDoc(swaggerSpect)))*/
+app.use('/api-doc', swaggerUI.serve);
+app.get('/api-doc', swaggerUI.setup(swaggerSpect));
 
+//app.put('/api/users/:historyId', responseOpenApiAI); 
 app.put('/api/users/:historyId', responseOpenApiAI); 
+
+
+//middleware 
+app.use(express.json())
+app.use('/api', userRoutes);
 
 
 
@@ -39,17 +55,21 @@ app.get('/',(request, response, error)=> {
 
 } )
 
-
-app.listen(port, (error) => {
-
-    if(error){
-        console.log('Server errror: Failed');
-        process.exit(1);
+app.listen(port, (error)=>{
+    if (error){
+        console.log('sErVeR error: failed');
+        process.exit(1)
     }
-    
-    console.log(`Server listening in port ${port} `)
+
+    console.log(`server litening in por ${port}`);
 })
-console.log("Holaaaaa");
+console.log("hola");
+
+
+
+ 
+
+
 
 
 
