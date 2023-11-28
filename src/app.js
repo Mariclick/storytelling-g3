@@ -1,4 +1,5 @@
 import express from 'express';
+
 import { port } from './config/index.js';
 import dbConnection from './config/db.js';
 import userRoutes from  './routes/user.js';

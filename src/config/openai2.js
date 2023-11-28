@@ -22,44 +22,45 @@ async function responseOpenApiAI(request, response) {
       return response.status(404).json({ message: 'ID no encontrado en la base de datos' });
     }
 
-    const mensajeUsuario = `Eres un escritor experto en crear historias para camapañas
-    publicitarias de tipo storytelling,
-    y tu proposito es ayudar al usuario a desarrollar una narrativa cautivadora 
-    para su empresa o emprendimiento,en base a la siguiente información:
-    
-    1. Nombre del storytelling o nombre de la campaña transmedia (por ejemplo, "El legado del príncipe Heredero"): {nombre}
-       
-    2. Enlace de tu empresa:{enlace}
-    
-    3. Nombre de la empresa o emprendimiento: {empresa} 
-    
-    4. Misión de la empresa o emprendimiento: {mision}
-    
-    5. Género del protagonista que representa tu marca: {genero}
-    
-    6. Nombre del protagonista: {protagonista}
-    
-    7. Objetivo del protagonista (por ejemplo, "Encontrar a la princesa"):{objetivo}
-    
-    8. Sentimiento de motivación del protagonista (por ejemplo, amor, odio, esperanza, alegría, venganza, etc.): {motivation}
-    
-    9. El antagonista, es decir, quien impide al protagonista cumplir con su objetivo (por ejemplo, un villano, un obstáculo, un miedo, una duda, etc.): {malo}
-    
-    10. El ayudante del protagonista (por ejemplo, un amigo, un familiar, un objeto mágico, etc.):{ayudante}
-    
-    11. La actitud que tiene el ayudante (por ejemplo, loco, sabio, divertido, etc.): {actitud}
-    
-    12. El mensaje que se debe transmitir dentro de la historia creada (por ejemplo, enfrentar desafíos o pruebas, resolver conflictos, etc.):{mensaje}
-    
-    13. El tono comunicativo de la marca representada es: Rebeldía, obstinación y oposición
-    intención de demostrar que la marca representada en el storytelling tiene un posicionamiento de qué:
-    Es irreverente y puedes hacer lo que quieres:{comportamiento}
-    
-    El Storytelling debe tener sólo 750 caracteres.
-    Se creativo y coherente con el desarrollo del storytelling, considera el arquetipo como elemento principal del comportamiento del protagonista, no lo debes mencionar el arquetipo,
-    los elementos del usuario deben incorporarse de forma implicita en la historias que creas.
-    Limitate a solo crear la historia y no hagas una reflexión de la historia.
-    Utiliza como base para la redacción la siguiente información: ${historyId}\n${JSON.stringify(data)}`; // Tu mensaje de usuario aquí
+    const mensajeUsuario = `Tu eres un experto en campañas publicitarias y estás ayudando a una empresa a crear su Transmedia Storytelling que represente la identidad de la marca y la importancia de su servicio/producto. Estos son los datos del cliente:
+    Nombre de la campaña: {name}
+    Nombre de la Marca: {company}
+    Descripción del producto: {mission}
+    Crea un Storytelling en que el tono comunicativo és: {keywords} a demostrar que la marca representada tiene un posicionamiento de qué: {archetype_description}. Con base en los siguientes requisitos narrativos:
+    El protagonista de la historia es {protagonista}
+    El género del protagonista es {gender}
+    El protagonista tiene como objetivo {objective}
+    Pero, {bad} impide el protagonista a cumplir su objetivo
+    {helper} ayuda el protagonista
+    La actitud que tiene el ayudante es {helper_characteristic}
+    En el fin, {message}
+    Primero, escribe el storytelling 3 párrafos de 250 caracteres cada uno.
+    Segundo, escribe otro texto más corto de 180 caracteres conteniendo hashtags y emojis, para divulgación en las redes sociales de la misma narrativa. Debe contener el {enlace} enlace en el fin del texto. 
+    Sábio: quiero que el texto me haga sentir que leo la verdad absoluta.(descripción arquetipo)
+    Palabras Clave: Conocedor, Confiable, Poderoso.
+    Inocente: Quiero que el texto me hagas sentir que todo es bello y feliz (descripción arquetipo)
+    Palabras Clave: Tranquilidad, felicidad, satisfacción
+    Gobernante: Me hace sentir con el texto que eres un líder imponente. (descripción arquetipo)
+    Palabras clave: prestígio, liderazgo, poder.
+    Común: Vives una vida común, pero se va convertir en una persona mejor (descripción arquetipo)
+    Palabras Clave: mérito, esfuerzo, vida tranquila
+    Cuidador: Se sientas confortable, protegido (descripción arquetipo)
+    Palabras Clave: Amabilidad, cuidado, anidado
+    Amante: Nos dá deseo y demonstra fidelidad (descripción arquetipo)
+    Palabras Clave: Amor, Lealtad, Fijación
+    Bufón: Quiero que el texto me haga reir (descripción arquetipo)
+    Palabras clave: Cómico, humor, fantasía
+    Rebelde: Quero texto me haga sentir que puedo romper reglas (descripción arquetipo)
+    Palabras clave: Rebeldía, obstinación y oposición
+    Explorador: Quiero que me haga sentir que vamos a descubrir algo nuevo, o que me llevas en una aventura (descripción arquetipo)
+    Palabras clave: Sin límites, pioneiro, explorador
+    Creativo: Quiero que el texto despierte mi imaginación (descripción arquetipo)
+    Palabras clave: Imaginación, Invención, Creatividad
+    Héroe: Quiere que el texto me haga creer que puedo superar desafíos con valentía sobrepasar los  límites (descripción arquetipo)
+    Palabras clave: Grandiosidad, resistencia, inspiración
+    Mago: Quiero que el texto me haga sentir que todo se resuelve de forma sencilla. (descripción arquetipo)
+    Palabras clave: Libertad, magia, facilidad, geniosidad
+    Utiliza como base para la redacción la siguiente información: ${historyId}\n${JSON.stringify(data)}` 
 
     const chatCompletion = await openaiInstance.chat.completions.create({
       messages: [{ role: 'user', content: mensajeUsuario }],
