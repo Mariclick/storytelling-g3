@@ -34,12 +34,11 @@ dbConnection()
 
 
 //swagger
-/*app.use(
-  '/api-doc',swaggerUI.serve,swaggerUI.setup(swaggerJsDoc(swaggerSpect)))*/
+
 app.use('/api-doc', swaggerUI.serve);
 app.get('/api-doc', swaggerUI.setup(swaggerSpect));
 
-//app.put('/api/users/:historyId', responseOpenApiAI); 
+
 app.put('/api/users/:historyId', responseOpenApiAI); 
 
 
